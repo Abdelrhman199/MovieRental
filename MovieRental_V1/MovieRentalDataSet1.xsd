@@ -1,0 +1,919 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MovieRentalDataSet1" targetNamespace="http://tempuri.org/MovieRentalDataSet1.xsd" xmlns:mstns="http://tempuri.org/MovieRentalDataSet1.xsd" xmlns="http://tempuri.org/MovieRentalDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="MovieRentalConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MovieRentalConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MovieRental_V1.Properties.Settings.GlobalReference.Default.MovieRentalConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MOVIE.MOVIE_ID, MOVIE.Movie_NAME, MOVIE.RATE, MOVIE.RELEASE_YEAR, MOVIE.DURATION, MOVIE.VIDEO_QUALITY, MOVIE.NO_VERSIONS, MOVIE.MOVIE_PRICE, MOVIE.ADMIN_ID, MAINACTORS.MAIN_ACTORS, 
+                         GENER.MOVIE_GERE
+FROM            GENER INNER JOIN
+                         MAINACTORS ON GENER.MOVIE_ID = MAINACTORS.MOVIE_ID INNER JOIN
+                         MOVIE ON GENER.MOVIE_ID = MOVIE.MOVIE_ID AND MAINACTORS.MOVIE_ID = MOVIE.MOVIE_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MOVIE_ID" DataSetColumn="MOVIE_ID" />
+              <Mapping SourceColumn="Movie_NAME" DataSetColumn="Movie_NAME" />
+              <Mapping SourceColumn="RATE" DataSetColumn="RATE" />
+              <Mapping SourceColumn="RELEASE_YEAR" DataSetColumn="RELEASE_YEAR" />
+              <Mapping SourceColumn="DURATION" DataSetColumn="DURATION" />
+              <Mapping SourceColumn="VIDEO_QUALITY" DataSetColumn="VIDEO_QUALITY" />
+              <Mapping SourceColumn="NO_VERSIONS" DataSetColumn="NO_VERSIONS" />
+              <Mapping SourceColumn="MOVIE_PRICE" DataSetColumn="MOVIE_PRICE" />
+              <Mapping SourceColumn="ADMIN_ID" DataSetColumn="ADMIN_ID" />
+              <Mapping SourceColumn="MAIN_ACTORS" DataSetColumn="MAIN_ACTORS" />
+              <Mapping SourceColumn="MOVIE_GERE" DataSetColumn="MOVIE_GERE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CUSTOMERTableAdapter" GeneratorDataComponentClassName="CUSTOMERTableAdapter" Name="CUSTOMER" UserDataComponentName="CUSTOMERTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.CUSTOMER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[CUSTOMER] WHERE (([USERNAME] = @Original_USERNAME))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[CUSTOMER] ([USERNAME]) VALUES (@USERNAME);
+SELECT USERNAME FROM CUSTOMER WHERE (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT USERNAME FROM dbo.CUSTOMER</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[CUSTOMER] SET [USERNAME] = @USERNAME WHERE (([USERNAME] = @Original_USERNAME));
+SELECT USERNAME FROM CUSTOMER WHERE (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GENERTableAdapter" GeneratorDataComponentClassName="GENERTableAdapter" Name="GENER" UserDataComponentName="GENERTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.GENER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[GENER] WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([MOVIE_GERE] = @Original_MOVIE_GERE))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MOVIE_GERE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MOVIE_GERE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[GENER] ([MOVIE_ID], [MOVIE_GERE]) VALUES (@MOVIE_ID, @MOVIE_GERE);
+SELECT MOVIE_ID, MOVIE_GERE FROM GENER WHERE (MOVIE_GERE = @MOVIE_GERE) AND (MOVIE_ID = @MOVIE_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MOVIE_GERE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MOVIE_GERE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MOVIE_ID, MOVIE_GERE FROM dbo.GENER</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[GENER] SET [MOVIE_ID] = @MOVIE_ID, [MOVIE_GERE] = @MOVIE_GERE WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([MOVIE_GERE] = @Original_MOVIE_GERE));
+SELECT MOVIE_ID, MOVIE_GERE FROM GENER WHERE (MOVIE_GERE = @MOVIE_GERE) AND (MOVIE_ID = @MOVIE_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MOVIE_GERE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MOVIE_GERE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MOVIE_GERE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MOVIE_GERE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MOVIE_ID" DataSetColumn="MOVIE_ID" />
+              <Mapping SourceColumn="MOVIE_GERE" DataSetColumn="MOVIE_GERE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MAINACTORSTableAdapter" GeneratorDataComponentClassName="MAINACTORSTableAdapter" Name="MAINACTORS" UserDataComponentName="MAINACTORSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.MAINACTORS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[MAINACTORS] WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([MAIN_ACTORS] = @Original_MAIN_ACTORS))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MAIN_ACTORS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAIN_ACTORS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[MAINACTORS] ([MOVIE_ID], [MAIN_ACTORS]) VALUES (@MOVIE_ID, @MAIN_ACTORS);
+SELECT MOVIE_ID, MAIN_ACTORS FROM MAINACTORS WHERE (MAIN_ACTORS = @MAIN_ACTORS) AND (MOVIE_ID = @MOVIE_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MAIN_ACTORS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAIN_ACTORS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MOVIE_ID, MAIN_ACTORS FROM dbo.MAINACTORS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[MAINACTORS] SET [MOVIE_ID] = @MOVIE_ID, [MAIN_ACTORS] = @MAIN_ACTORS WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([MAIN_ACTORS] = @Original_MAIN_ACTORS));
+SELECT MOVIE_ID, MAIN_ACTORS FROM MAINACTORS WHERE (MAIN_ACTORS = @MAIN_ACTORS) AND (MOVIE_ID = @MOVIE_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MAIN_ACTORS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAIN_ACTORS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MAIN_ACTORS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAIN_ACTORS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MOVIE_ID" DataSetColumn="MOVIE_ID" />
+              <Mapping SourceColumn="MAIN_ACTORS" DataSetColumn="MAIN_ACTORS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MOVIETableAdapter" GeneratorDataComponentClassName="MOVIETableAdapter" Name="MOVIE" UserDataComponentName="MOVIETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.MOVIE" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[MOVIE] WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([Movie_NAME] = @Original_Movie_NAME) AND ([RATE] = @Original_RATE) AND ([RELEASE_YEAR] = @Original_RELEASE_YEAR) AND ([DURATION] = @Original_DURATION) AND ([VIDEO_QUALITY] = @Original_VIDEO_QUALITY) AND ([NO_VERSIONS] = @Original_NO_VERSIONS) AND ((@IsNull_MOVIE_PRICE = 1 AND [MOVIE_PRICE] IS NULL) OR ([MOVIE_PRICE] = @Original_MOVIE_PRICE)) AND ((@IsNull_ADMIN_ID = 1 AND [ADMIN_ID] IS NULL) OR ([ADMIN_ID] = @Original_ADMIN_ID)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Movie_NAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Movie_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RATE" Precision="3" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RELEASE_YEAR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RELEASE_YEAR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@Original_DURATION" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_VIDEO_QUALITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VIDEO_QUALITY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NO_VERSIONS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO_VERSIONS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MOVIE_PRICE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_PRICE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_MOVIE_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MOVIE_PRICE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ADMIN_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ADMIN_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ADMIN_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ADMIN_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[MOVIE] ([MOVIE_ID], [Movie_NAME], [RATE], [RELEASE_YEAR], [DURATION], [VIDEO_QUALITY], [NO_VERSIONS], [MOVIE_PRICE], [ADMIN_ID]) VALUES (@MOVIE_ID, @Movie_NAME, @RATE, @RELEASE_YEAR, @DURATION, @VIDEO_QUALITY, @NO_VERSIONS, @MOVIE_PRICE, @ADMIN_ID);
+SELECT MOVIE_ID, Movie_NAME, RATE, RELEASE_YEAR, DURATION, VIDEO_QUALITY, NO_VERSIONS, MOVIE_PRICE, ADMIN_ID FROM MOVIE WHERE (MOVIE_ID = @MOVIE_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Movie_NAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Movie_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RATE" Precision="3" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RELEASE_YEAR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RELEASE_YEAR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@DURATION" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@VIDEO_QUALITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VIDEO_QUALITY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NO_VERSIONS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO_VERSIONS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MOVIE_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MOVIE_PRICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ADMIN_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ADMIN_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MOVIE_ID, Movie_NAME, RATE, RELEASE_YEAR, DURATION, VIDEO_QUALITY, NO_VERSIONS, MOVIE_PRICE, ADMIN_ID FROM dbo.MOVIE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[MOVIE] SET [MOVIE_ID] = @MOVIE_ID, [Movie_NAME] = @Movie_NAME, [RATE] = @RATE, [RELEASE_YEAR] = @RELEASE_YEAR, [DURATION] = @DURATION, [VIDEO_QUALITY] = @VIDEO_QUALITY, [NO_VERSIONS] = @NO_VERSIONS, [MOVIE_PRICE] = @MOVIE_PRICE, [ADMIN_ID] = @ADMIN_ID WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([Movie_NAME] = @Original_Movie_NAME) AND ([RATE] = @Original_RATE) AND ([RELEASE_YEAR] = @Original_RELEASE_YEAR) AND ([DURATION] = @Original_DURATION) AND ([VIDEO_QUALITY] = @Original_VIDEO_QUALITY) AND ([NO_VERSIONS] = @Original_NO_VERSIONS) AND ((@IsNull_MOVIE_PRICE = 1 AND [MOVIE_PRICE] IS NULL) OR ([MOVIE_PRICE] = @Original_MOVIE_PRICE)) AND ((@IsNull_ADMIN_ID = 1 AND [ADMIN_ID] IS NULL) OR ([ADMIN_ID] = @Original_ADMIN_ID)));
+SELECT MOVIE_ID, Movie_NAME, RATE, RELEASE_YEAR, DURATION, VIDEO_QUALITY, NO_VERSIONS, MOVIE_PRICE, ADMIN_ID FROM MOVIE WHERE (MOVIE_ID = @MOVIE_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Movie_NAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Movie_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RATE" Precision="3" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@RELEASE_YEAR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RELEASE_YEAR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@DURATION" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@VIDEO_QUALITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VIDEO_QUALITY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NO_VERSIONS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO_VERSIONS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MOVIE_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MOVIE_PRICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ADMIN_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ADMIN_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Movie_NAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Movie_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RATE" Precision="3" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_RELEASE_YEAR" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="RELEASE_YEAR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Time" Direction="Input" ParameterName="@Original_DURATION" Precision="0" ProviderType="Time" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_VIDEO_QUALITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="VIDEO_QUALITY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NO_VERSIONS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO_VERSIONS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MOVIE_PRICE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_PRICE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_MOVIE_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MOVIE_PRICE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ADMIN_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ADMIN_ID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ADMIN_ID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ADMIN_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MOVIE_ID" DataSetColumn="MOVIE_ID" />
+              <Mapping SourceColumn="Movie_NAME" DataSetColumn="Movie_NAME" />
+              <Mapping SourceColumn="RATE" DataSetColumn="RATE" />
+              <Mapping SourceColumn="RELEASE_YEAR" DataSetColumn="RELEASE_YEAR" />
+              <Mapping SourceColumn="DURATION" DataSetColumn="DURATION" />
+              <Mapping SourceColumn="VIDEO_QUALITY" DataSetColumn="VIDEO_QUALITY" />
+              <Mapping SourceColumn="NO_VERSIONS" DataSetColumn="NO_VERSIONS" />
+              <Mapping SourceColumn="MOVIE_PRICE" DataSetColumn="MOVIE_PRICE" />
+              <Mapping SourceColumn="ADMIN_ID" DataSetColumn="ADMIN_ID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NEW_USERTableAdapter" GeneratorDataComponentClassName="NEW_USERTableAdapter" Name="NEW_USER" UserDataComponentName="NEW_USERTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.NEW_USER" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[NEW_USER] WHERE (([USERNAME] = @Original_USERNAME) AND ([EMAIL] = @Original_EMAIL) AND ([USERPAss] = @Original_USERPAss) AND ([AGE] = @Original_AGE) AND ([Fname] = @Original_Fname) AND ([Lname] = @Original_Lname) AND ([PHONE] = @Original_PHONE) AND ([ST_ADDRESS] = @Original_ST_ADDRESS) AND ([CITY] = @Original_CITY) AND ([ZIPCODE] = @Original_ZIPCODE) AND ([COUNTRY] = @Original_COUNTRY) AND ([USER_ROLE] = @Original_USER_ROLE))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EMAIL" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EMAIL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERPAss" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERPAss" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AGE" Precision="2" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fname" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Lname" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PHONE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PHONE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ST_ADDRESS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ST_ADDRESS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CITY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_ZIPCODE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ZIPCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_COUNTRY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COUNTRY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USER_ROLE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USER_ROLE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[NEW_USER] ([USERNAME], [EMAIL], [USERPAss], [AGE], [Fname], [Lname], [PHONE], [ST_ADDRESS], [CITY], [ZIPCODE], [COUNTRY], [USER_ROLE]) VALUES (@USERNAME, @EMAIL, @USERPAss, @AGE, @Fname, @Lname, @PHONE, @ST_ADDRESS, @CITY, @ZIPCODE, @COUNTRY, @USER_ROLE);
+SELECT USERNAME, EMAIL, USERPAss, AGE, Fname, Lname, PHONE, ST_ADDRESS, CITY, ZIPCODE, COUNTRY, USER_ROLE FROM NEW_USER WHERE (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EMAIL" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EMAIL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERPAss" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERPAss" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AGE" Precision="2" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Lname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PHONE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PHONE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ST_ADDRESS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ST_ADDRESS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CITY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ZIPCODE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ZIPCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@COUNTRY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COUNTRY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USER_ROLE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USER_ROLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT USERNAME, EMAIL, USERPAss, AGE, Fname, Lname, PHONE, ST_ADDRESS, CITY, ZIPCODE, COUNTRY, USER_ROLE FROM dbo.NEW_USER</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[NEW_USER] SET [USERNAME] = @USERNAME, [EMAIL] = @EMAIL, [USERPAss] = @USERPAss, [AGE] = @AGE, [Fname] = @Fname, [Lname] = @Lname, [PHONE] = @PHONE, [ST_ADDRESS] = @ST_ADDRESS, [CITY] = @CITY, [ZIPCODE] = @ZIPCODE, [COUNTRY] = @COUNTRY, [USER_ROLE] = @USER_ROLE WHERE (([USERNAME] = @Original_USERNAME) AND ([EMAIL] = @Original_EMAIL) AND ([USERPAss] = @Original_USERPAss) AND ([AGE] = @Original_AGE) AND ([Fname] = @Original_Fname) AND ([Lname] = @Original_Lname) AND ([PHONE] = @Original_PHONE) AND ([ST_ADDRESS] = @Original_ST_ADDRESS) AND ([CITY] = @Original_CITY) AND ([ZIPCODE] = @Original_ZIPCODE) AND ([COUNTRY] = @Original_COUNTRY) AND ([USER_ROLE] = @Original_USER_ROLE));
+SELECT USERNAME, EMAIL, USERPAss, AGE, Fname, Lname, PHONE, ST_ADDRESS, CITY, ZIPCODE, COUNTRY, USER_ROLE FROM NEW_USER WHERE (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@EMAIL" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EMAIL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERPAss" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERPAss" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AGE" Precision="2" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Lname" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@PHONE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PHONE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@ST_ADDRESS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ST_ADDRESS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CITY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ZIPCODE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ZIPCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@COUNTRY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COUNTRY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USER_ROLE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USER_ROLE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_EMAIL" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="EMAIL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERPAss" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERPAss" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AGE" Precision="2" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AGE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Fname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Fname" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Lname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Lname" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_PHONE" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="PHONE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_ST_ADDRESS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ST_ADDRESS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CITY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CITY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_ZIPCODE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="ZIPCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_COUNTRY" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COUNTRY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USER_ROLE" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USER_ROLE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+              <Mapping SourceColumn="EMAIL" DataSetColumn="EMAIL" />
+              <Mapping SourceColumn="USERPAss" DataSetColumn="USERPAss" />
+              <Mapping SourceColumn="AGE" DataSetColumn="AGE" />
+              <Mapping SourceColumn="Fname" DataSetColumn="Fname" />
+              <Mapping SourceColumn="Lname" DataSetColumn="Lname" />
+              <Mapping SourceColumn="PHONE" DataSetColumn="PHONE" />
+              <Mapping SourceColumn="ST_ADDRESS" DataSetColumn="ST_ADDRESS" />
+              <Mapping SourceColumn="CITY" DataSetColumn="CITY" />
+              <Mapping SourceColumn="ZIPCODE" DataSetColumn="ZIPCODE" />
+              <Mapping SourceColumn="COUNTRY" DataSetColumn="COUNTRY" />
+              <Mapping SourceColumn="USER_ROLE" DataSetColumn="USER_ROLE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NEWADMINTableAdapter" GeneratorDataComponentClassName="NEWADMINTableAdapter" Name="NEWADMIN" UserDataComponentName="NEWADMINTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.NEWADMIN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[NEWADMIN] WHERE (([USERNAME] = @Original_USERNAME))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[NEWADMIN] ([USERNAME]) VALUES (@USERNAME);
+SELECT USERNAME FROM NEWADMIN WHERE (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT USERNAME FROM dbo.NEWADMIN</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[NEWADMIN] SET [USERNAME] = @USERNAME WHERE (([USERNAME] = @Original_USERNAME));
+SELECT USERNAME FROM NEWADMIN WHERE (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PAYMENTTableAdapter" GeneratorDataComponentClassName="PAYMENTTableAdapter" Name="PAYMENT" UserDataComponentName="PAYMENTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.PAYMENT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[PAYMENT] WHERE (([PAYMENT_ID] = @Original_PAYMENT_ID) AND ((@IsNull_USERNAME = 1 AND [USERNAME] IS NULL) OR ([USERNAME] = @Original_USERNAME)) AND ([AMOUNT] = @Original_AMOUNT) AND ([PAYMENT_DATE] = @Original_PAYMENT_DATE))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_PAYMENT_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PAYMENT_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_USERNAME" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AMOUNT" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AMOUNT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_PAYMENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PAYMENT_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[PAYMENT] ([USERNAME], [AMOUNT], [PAYMENT_DATE]) VALUES (@USERNAME, @AMOUNT, @PAYMENT_DATE);
+SELECT PAYMENT_ID, USERNAME, AMOUNT, PAYMENT_DATE FROM PAYMENT WHERE (PAYMENT_ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AMOUNT" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AMOUNT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@PAYMENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PAYMENT_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PAYMENT_ID, USERNAME, AMOUNT, PAYMENT_DATE FROM dbo.PAYMENT</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[PAYMENT] SET [USERNAME] = @USERNAME, [AMOUNT] = @AMOUNT, [PAYMENT_DATE] = @PAYMENT_DATE WHERE (([PAYMENT_ID] = @Original_PAYMENT_ID) AND ((@IsNull_USERNAME = 1 AND [USERNAME] IS NULL) OR ([USERNAME] = @Original_USERNAME)) AND ([AMOUNT] = @Original_AMOUNT) AND ([PAYMENT_DATE] = @Original_PAYMENT_DATE));
+SELECT PAYMENT_ID, USERNAME, AMOUNT, PAYMENT_DATE FROM PAYMENT WHERE (PAYMENT_ID = @PAYMENT_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AMOUNT" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AMOUNT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@PAYMENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PAYMENT_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_PAYMENT_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PAYMENT_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_USERNAME" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AMOUNT" Precision="6" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="AMOUNT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_PAYMENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PAYMENT_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="PAYMENT_ID" ColumnName="PAYMENT_ID" DataSourceName="MovieRental.dbo.PAYMENT" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@PAYMENT_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="PAYMENT_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PAYMENT_ID" DataSetColumn="PAYMENT_ID" />
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+              <Mapping SourceColumn="AMOUNT" DataSetColumn="AMOUNT" />
+              <Mapping SourceColumn="PAYMENT_DATE" DataSetColumn="PAYMENT_DATE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RENTTableAdapter" GeneratorDataComponentClassName="RENTTableAdapter" Name="RENT" UserDataComponentName="RENTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectName="MovieRental.dbo.RENT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[RENT] WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([USERNAME] = @Original_USERNAME) AND ((@IsNull_START_RENT_DATE = 1 AND [START_RENT_DATE] IS NULL) OR ([START_RENT_DATE] = @Original_START_RENT_DATE)) AND ((@IsNull_RETURN_DATE = 1 AND [RETURN_DATE] IS NULL) OR ([RETURN_DATE] = @Original_RETURN_DATE)) AND ((@IsNull_RENT_PRICE = 1 AND [RENT_PRICE] IS NULL) OR ([RENT_PRICE] = @Original_RENT_PRICE)) AND ((@IsNull_DURATION = 1 AND [DURATION] IS NULL) OR ([DURATION] = @Original_DURATION)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_START_RENT_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="START_RENT_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_START_RENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="START_RENT_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RETURN_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RETURN_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_RETURN_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="RETURN_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RENT_PRICE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RENT_PRICE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RENT_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RENT_PRICE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DURATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_DURATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[RENT] ([MOVIE_ID], [USERNAME], [START_RENT_DATE], [RETURN_DATE], [RENT_PRICE], [DURATION]) VALUES (@MOVIE_ID, @USERNAME, @START_RENT_DATE, @RETURN_DATE, @RENT_PRICE, @DURATION);
+SELECT MOVIE_ID, USERNAME, START_RENT_DATE, RETURN_DATE, RENT_PRICE, DURATION FROM RENT WHERE (MOVIE_ID = @MOVIE_ID) AND (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@START_RENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="START_RENT_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@RETURN_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="RETURN_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RENT_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RENT_PRICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@DURATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MOVIE_ID, USERNAME, START_RENT_DATE, RETURN_DATE, RENT_PRICE, DURATION FROM dbo.RENT</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[RENT] SET [MOVIE_ID] = @MOVIE_ID, [USERNAME] = @USERNAME, [START_RENT_DATE] = @START_RENT_DATE, [RETURN_DATE] = @RETURN_DATE, [RENT_PRICE] = @RENT_PRICE, [DURATION] = @DURATION WHERE (([MOVIE_ID] = @Original_MOVIE_ID) AND ([USERNAME] = @Original_USERNAME) AND ((@IsNull_START_RENT_DATE = 1 AND [START_RENT_DATE] IS NULL) OR ([START_RENT_DATE] = @Original_START_RENT_DATE)) AND ((@IsNull_RETURN_DATE = 1 AND [RETURN_DATE] IS NULL) OR ([RETURN_DATE] = @Original_RETURN_DATE)) AND ((@IsNull_RENT_PRICE = 1 AND [RENT_PRICE] IS NULL) OR ([RENT_PRICE] = @Original_RENT_PRICE)) AND ((@IsNull_DURATION = 1 AND [DURATION] IS NULL) OR ([DURATION] = @Original_DURATION)));
+SELECT MOVIE_ID, USERNAME, START_RENT_DATE, RETURN_DATE, RENT_PRICE, DURATION FROM RENT WHERE (MOVIE_ID = @MOVIE_ID) AND (USERNAME = @USERNAME)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@START_RENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="START_RENT_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@RETURN_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="RETURN_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RENT_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RENT_PRICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@DURATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MOVIE_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MOVIE_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="USERNAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_START_RENT_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="START_RENT_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_START_RENT_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="START_RENT_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RETURN_DATE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RETURN_DATE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_RETURN_DATE" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="RETURN_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RENT_PRICE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="RENT_PRICE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RENT_PRICE" Precision="4" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="RENT_PRICE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DURATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_DURATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DURATION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MOVIE_ID" DataSetColumn="MOVIE_ID" />
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+              <Mapping SourceColumn="START_RENT_DATE" DataSetColumn="START_RENT_DATE" />
+              <Mapping SourceColumn="RETURN_DATE" DataSetColumn="RETURN_DATE" />
+              <Mapping SourceColumn="RENT_PRICE" DataSetColumn="RENT_PRICE" />
+              <Mapping SourceColumn="DURATION" DataSetColumn="DURATION" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MovieRentalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MOVIE.MOVIE_ID, MOVIE.Movie_NAME, MOVIE.RATE, MOVIE.RELEASE_YEAR, MOVIE.DURATION, MOVIE.VIDEO_QUALITY, MOVIE.MOVIE_PRICE AS RentPrice, RENT.START_RENT_DATE, RENT.RETURN_DATE
+FROM            MOVIE INNER JOIN
+                         RENT ON MOVIE.MOVIE_ID = RENT.MOVIE_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="START_RENT_DATE" DataSetColumn="START_RENT_DATE" />
+              <Mapping SourceColumn="RETURN_DATE" DataSetColumn="RETURN_DATE" />
+              <Mapping SourceColumn="RentPrice" DataSetColumn="RentPrice" />
+              <Mapping SourceColumn="MOVIE_ID" DataSetColumn="MOVIE_ID" />
+              <Mapping SourceColumn="Movie_NAME" DataSetColumn="Movie_NAME" />
+              <Mapping SourceColumn="RATE" DataSetColumn="RATE" />
+              <Mapping SourceColumn="RELEASE_YEAR" DataSetColumn="RELEASE_YEAR" />
+              <Mapping SourceColumn="DURATION" DataSetColumn="DURATION" />
+              <Mapping SourceColumn="VIDEO_QUALITY" DataSetColumn="VIDEO_QUALITY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MovieRentalDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MovieRentalDataSet1" msprop:Generator_UserDSName="MovieRentalDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MOVIE_ID" msprop:Generator_ColumnVarNameInTable="columnMOVIE_ID" msprop:Generator_ColumnPropNameInRow="MOVIE_ID" msprop:Generator_ColumnPropNameInTable="MOVIE_IDColumn" msprop:Generator_UserColumnName="MOVIE_ID" type="xs:int" />
+              <xs:element name="Movie_NAME" msprop:Generator_ColumnVarNameInTable="columnMovie_NAME" msprop:Generator_ColumnPropNameInRow="Movie_NAME" msprop:Generator_ColumnPropNameInTable="Movie_NAMEColumn" msprop:Generator_UserColumnName="Movie_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RATE" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" />
+              <xs:element name="RELEASE_YEAR" msprop:Generator_ColumnVarNameInTable="columnRELEASE_YEAR" msprop:Generator_ColumnPropNameInRow="RELEASE_YEAR" msprop:Generator_ColumnPropNameInTable="RELEASE_YEARColumn" msprop:Generator_UserColumnName="RELEASE_YEAR">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DURATION" msprop:Generator_ColumnVarNameInTable="columnDURATION" msprop:Generator_ColumnPropNameInRow="DURATION" msprop:Generator_ColumnPropNameInTable="DURATIONColumn" msprop:Generator_UserColumnName="DURATION" type="xs:duration" />
+              <xs:element name="VIDEO_QUALITY" msprop:Generator_ColumnVarNameInTable="columnVIDEO_QUALITY" msprop:Generator_ColumnPropNameInRow="VIDEO_QUALITY" msprop:Generator_ColumnPropNameInTable="VIDEO_QUALITYColumn" msprop:Generator_UserColumnName="VIDEO_QUALITY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NO_VERSIONS" msprop:Generator_ColumnVarNameInTable="columnNO_VERSIONS" msprop:Generator_ColumnPropNameInRow="NO_VERSIONS" msprop:Generator_ColumnPropNameInTable="NO_VERSIONSColumn" msprop:Generator_UserColumnName="NO_VERSIONS" type="xs:int" />
+              <xs:element name="MOVIE_PRICE" msprop:Generator_ColumnVarNameInTable="columnMOVIE_PRICE" msprop:Generator_ColumnPropNameInRow="MOVIE_PRICE" msprop:Generator_ColumnPropNameInTable="MOVIE_PRICEColumn" msprop:Generator_UserColumnName="MOVIE_PRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ADMIN_ID" msprop:Generator_ColumnVarNameInTable="columnADMIN_ID" msprop:Generator_ColumnPropNameInRow="ADMIN_ID" msprop:Generator_ColumnPropNameInTable="ADMIN_IDColumn" msprop:Generator_UserColumnName="ADMIN_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAIN_ACTORS" msprop:Generator_ColumnVarNameInTable="columnMAIN_ACTORS" msprop:Generator_ColumnPropNameInRow="MAIN_ACTORS" msprop:Generator_ColumnPropNameInTable="MAIN_ACTORSColumn" msprop:Generator_UserColumnName="MAIN_ACTORS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOVIE_GERE" msprop:Generator_ColumnVarNameInTable="columnMOVIE_GERE" msprop:Generator_ColumnPropNameInRow="MOVIE_GERE" msprop:Generator_ColumnPropNameInTable="MOVIE_GEREColumn" msprop:Generator_UserColumnName="MOVIE_GERE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CUSTOMER" msprop:Generator_TableClassName="CUSTOMERDataTable" msprop:Generator_TableVarName="tableCUSTOMER" msprop:Generator_RowChangedName="CUSTOMERRowChanged" msprop:Generator_TablePropName="CUSTOMER" msprop:Generator_RowDeletingName="CUSTOMERRowDeleting" msprop:Generator_RowChangingName="CUSTOMERRowChanging" msprop:Generator_RowEvHandlerName="CUSTOMERRowChangeEventHandler" msprop:Generator_RowDeletedName="CUSTOMERRowDeleted" msprop:Generator_RowClassName="CUSTOMERRow" msprop:Generator_UserTableName="CUSTOMER" msprop:Generator_RowEvArgName="CUSTOMERRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GENER" msprop:Generator_TableClassName="GENERDataTable" msprop:Generator_TableVarName="tableGENER" msprop:Generator_RowChangedName="GENERRowChanged" msprop:Generator_TablePropName="GENER" msprop:Generator_RowDeletingName="GENERRowDeleting" msprop:Generator_RowChangingName="GENERRowChanging" msprop:Generator_RowEvHandlerName="GENERRowChangeEventHandler" msprop:Generator_RowDeletedName="GENERRowDeleted" msprop:Generator_RowClassName="GENERRow" msprop:Generator_UserTableName="GENER" msprop:Generator_RowEvArgName="GENERRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MOVIE_ID" msprop:Generator_ColumnVarNameInTable="columnMOVIE_ID" msprop:Generator_ColumnPropNameInRow="MOVIE_ID" msprop:Generator_ColumnPropNameInTable="MOVIE_IDColumn" msprop:Generator_UserColumnName="MOVIE_ID" type="xs:int" />
+              <xs:element name="MOVIE_GERE" msprop:Generator_ColumnVarNameInTable="columnMOVIE_GERE" msprop:Generator_ColumnPropNameInRow="MOVIE_GERE" msprop:Generator_ColumnPropNameInTable="MOVIE_GEREColumn" msprop:Generator_UserColumnName="MOVIE_GERE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MAINACTORS" msprop:Generator_TableClassName="MAINACTORSDataTable" msprop:Generator_TableVarName="tableMAINACTORS" msprop:Generator_RowChangedName="MAINACTORSRowChanged" msprop:Generator_TablePropName="MAINACTORS" msprop:Generator_RowDeletingName="MAINACTORSRowDeleting" msprop:Generator_RowChangingName="MAINACTORSRowChanging" msprop:Generator_RowEvHandlerName="MAINACTORSRowChangeEventHandler" msprop:Generator_RowDeletedName="MAINACTORSRowDeleted" msprop:Generator_RowClassName="MAINACTORSRow" msprop:Generator_UserTableName="MAINACTORS" msprop:Generator_RowEvArgName="MAINACTORSRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MOVIE_ID" msprop:Generator_ColumnVarNameInTable="columnMOVIE_ID" msprop:Generator_ColumnPropNameInRow="MOVIE_ID" msprop:Generator_ColumnPropNameInTable="MOVIE_IDColumn" msprop:Generator_UserColumnName="MOVIE_ID" type="xs:int" />
+              <xs:element name="MAIN_ACTORS" msprop:Generator_ColumnVarNameInTable="columnMAIN_ACTORS" msprop:Generator_ColumnPropNameInRow="MAIN_ACTORS" msprop:Generator_ColumnPropNameInTable="MAIN_ACTORSColumn" msprop:Generator_UserColumnName="MAIN_ACTORS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MOVIE" msprop:Generator_TableClassName="MOVIEDataTable" msprop:Generator_TableVarName="tableMOVIE" msprop:Generator_RowChangedName="MOVIERowChanged" msprop:Generator_TablePropName="MOVIE" msprop:Generator_RowDeletingName="MOVIERowDeleting" msprop:Generator_RowChangingName="MOVIERowChanging" msprop:Generator_RowEvHandlerName="MOVIERowChangeEventHandler" msprop:Generator_RowDeletedName="MOVIERowDeleted" msprop:Generator_RowClassName="MOVIERow" msprop:Generator_UserTableName="MOVIE" msprop:Generator_RowEvArgName="MOVIERowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MOVIE_ID" msprop:Generator_ColumnVarNameInTable="columnMOVIE_ID" msprop:Generator_ColumnPropNameInRow="MOVIE_ID" msprop:Generator_ColumnPropNameInTable="MOVIE_IDColumn" msprop:Generator_UserColumnName="MOVIE_ID" type="xs:int" />
+              <xs:element name="Movie_NAME" msprop:Generator_ColumnVarNameInTable="columnMovie_NAME" msprop:Generator_ColumnPropNameInRow="Movie_NAME" msprop:Generator_ColumnPropNameInTable="Movie_NAMEColumn" msprop:Generator_UserColumnName="Movie_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RATE" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" />
+              <xs:element name="RELEASE_YEAR" msprop:Generator_ColumnVarNameInTable="columnRELEASE_YEAR" msprop:Generator_ColumnPropNameInRow="RELEASE_YEAR" msprop:Generator_ColumnPropNameInTable="RELEASE_YEARColumn" msprop:Generator_UserColumnName="RELEASE_YEAR">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DURATION" msprop:Generator_ColumnVarNameInTable="columnDURATION" msprop:Generator_ColumnPropNameInRow="DURATION" msprop:Generator_ColumnPropNameInTable="DURATIONColumn" msprop:Generator_UserColumnName="DURATION" type="xs:duration" />
+              <xs:element name="VIDEO_QUALITY" msprop:Generator_ColumnVarNameInTable="columnVIDEO_QUALITY" msprop:Generator_ColumnPropNameInRow="VIDEO_QUALITY" msprop:Generator_ColumnPropNameInTable="VIDEO_QUALITYColumn" msprop:Generator_UserColumnName="VIDEO_QUALITY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NO_VERSIONS" msprop:Generator_ColumnVarNameInTable="columnNO_VERSIONS" msprop:Generator_ColumnPropNameInRow="NO_VERSIONS" msprop:Generator_ColumnPropNameInTable="NO_VERSIONSColumn" msprop:Generator_UserColumnName="NO_VERSIONS" type="xs:int" />
+              <xs:element name="MOVIE_PRICE" msprop:Generator_ColumnVarNameInTable="columnMOVIE_PRICE" msprop:Generator_ColumnPropNameInRow="MOVIE_PRICE" msprop:Generator_ColumnPropNameInTable="MOVIE_PRICEColumn" msprop:Generator_UserColumnName="MOVIE_PRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ADMIN_ID" msprop:Generator_ColumnVarNameInTable="columnADMIN_ID" msprop:Generator_ColumnPropNameInRow="ADMIN_ID" msprop:Generator_ColumnPropNameInTable="ADMIN_IDColumn" msprop:Generator_UserColumnName="ADMIN_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NEW_USER" msprop:Generator_TableClassName="NEW_USERDataTable" msprop:Generator_TableVarName="tableNEW_USER" msprop:Generator_RowChangedName="NEW_USERRowChanged" msprop:Generator_TablePropName="NEW_USER" msprop:Generator_RowDeletingName="NEW_USERRowDeleting" msprop:Generator_RowChangingName="NEW_USERRowChanging" msprop:Generator_RowEvHandlerName="NEW_USERRowChangeEventHandler" msprop:Generator_RowDeletedName="NEW_USERRowDeleted" msprop:Generator_RowClassName="NEW_USERRow" msprop:Generator_UserTableName="NEW_USER" msprop:Generator_RowEvArgName="NEW_USERRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMAIL" msprop:Generator_ColumnVarNameInTable="columnEMAIL" msprop:Generator_ColumnPropNameInRow="EMAIL" msprop:Generator_ColumnPropNameInTable="EMAILColumn" msprop:Generator_UserColumnName="EMAIL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="USERPAss" msprop:Generator_ColumnVarNameInTable="columnUSERPAss" msprop:Generator_ColumnPropNameInRow="USERPAss" msprop:Generator_ColumnPropNameInTable="USERPAssColumn" msprop:Generator_UserColumnName="USERPAss">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGE" msprop:Generator_ColumnVarNameInTable="columnAGE" msprop:Generator_ColumnPropNameInRow="AGE" msprop:Generator_ColumnPropNameInTable="AGEColumn" msprop:Generator_UserColumnName="AGE" type="xs:decimal" />
+              <xs:element name="Fname" msprop:Generator_ColumnVarNameInTable="columnFname" msprop:Generator_ColumnPropNameInRow="Fname" msprop:Generator_ColumnPropNameInTable="FnameColumn" msprop:Generator_UserColumnName="Fname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lname" msprop:Generator_ColumnVarNameInTable="columnLname" msprop:Generator_ColumnPropNameInRow="Lname" msprop:Generator_ColumnPropNameInTable="LnameColumn" msprop:Generator_UserColumnName="Lname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE" msprop:Generator_ColumnVarNameInTable="columnPHONE" msprop:Generator_ColumnPropNameInRow="PHONE" msprop:Generator_ColumnPropNameInTable="PHONEColumn" msprop:Generator_UserColumnName="PHONE" type="xs:decimal" />
+              <xs:element name="ST_ADDRESS" msprop:Generator_ColumnVarNameInTable="columnST_ADDRESS" msprop:Generator_ColumnPropNameInRow="ST_ADDRESS" msprop:Generator_ColumnPropNameInTable="ST_ADDRESSColumn" msprop:Generator_UserColumnName="ST_ADDRESS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CITY" msprop:Generator_ColumnVarNameInTable="columnCITY" msprop:Generator_ColumnPropNameInRow="CITY" msprop:Generator_ColumnPropNameInTable="CITYColumn" msprop:Generator_UserColumnName="CITY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ZIPCODE" msprop:Generator_ColumnVarNameInTable="columnZIPCODE" msprop:Generator_ColumnPropNameInRow="ZIPCODE" msprop:Generator_ColumnPropNameInTable="ZIPCODEColumn" msprop:Generator_UserColumnName="ZIPCODE" type="xs:decimal" />
+              <xs:element name="COUNTRY" msprop:Generator_ColumnVarNameInTable="columnCOUNTRY" msprop:Generator_ColumnPropNameInRow="COUNTRY" msprop:Generator_ColumnPropNameInTable="COUNTRYColumn" msprop:Generator_UserColumnName="COUNTRY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="USER_ROLE" msprop:Generator_ColumnVarNameInTable="columnUSER_ROLE" msprop:Generator_ColumnPropNameInRow="USER_ROLE" msprop:Generator_ColumnPropNameInTable="USER_ROLEColumn" msprop:Generator_UserColumnName="USER_ROLE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NEWADMIN" msprop:Generator_TableClassName="NEWADMINDataTable" msprop:Generator_TableVarName="tableNEWADMIN" msprop:Generator_RowChangedName="NEWADMINRowChanged" msprop:Generator_TablePropName="NEWADMIN" msprop:Generator_RowDeletingName="NEWADMINRowDeleting" msprop:Generator_RowChangingName="NEWADMINRowChanging" msprop:Generator_RowEvHandlerName="NEWADMINRowChangeEventHandler" msprop:Generator_RowDeletedName="NEWADMINRowDeleted" msprop:Generator_RowClassName="NEWADMINRow" msprop:Generator_UserTableName="NEWADMIN" msprop:Generator_RowEvArgName="NEWADMINRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PAYMENT" msprop:Generator_TableClassName="PAYMENTDataTable" msprop:Generator_TableVarName="tablePAYMENT" msprop:Generator_RowChangedName="PAYMENTRowChanged" msprop:Generator_TablePropName="PAYMENT" msprop:Generator_RowDeletingName="PAYMENTRowDeleting" msprop:Generator_RowChangingName="PAYMENTRowChanging" msprop:Generator_RowEvHandlerName="PAYMENTRowChangeEventHandler" msprop:Generator_RowDeletedName="PAYMENTRowDeleted" msprop:Generator_RowClassName="PAYMENTRow" msprop:Generator_UserTableName="PAYMENT" msprop:Generator_RowEvArgName="PAYMENTRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PAYMENT_ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPAYMENT_ID" msprop:Generator_ColumnPropNameInRow="PAYMENT_ID" msprop:Generator_ColumnPropNameInTable="PAYMENT_IDColumn" msprop:Generator_UserColumnName="PAYMENT_ID" type="xs:int" />
+              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AMOUNT" msprop:Generator_ColumnVarNameInTable="columnAMOUNT" msprop:Generator_ColumnPropNameInRow="AMOUNT" msprop:Generator_ColumnPropNameInTable="AMOUNTColumn" msprop:Generator_UserColumnName="AMOUNT" type="xs:decimal" />
+              <xs:element name="PAYMENT_DATE" msprop:Generator_ColumnVarNameInTable="columnPAYMENT_DATE" msprop:Generator_ColumnPropNameInRow="PAYMENT_DATE" msprop:Generator_ColumnPropNameInTable="PAYMENT_DATEColumn" msprop:Generator_UserColumnName="PAYMENT_DATE" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RENT" msprop:Generator_TableClassName="RENTDataTable" msprop:Generator_TableVarName="tableRENT" msprop:Generator_RowChangedName="RENTRowChanged" msprop:Generator_TablePropName="RENT" msprop:Generator_RowDeletingName="RENTRowDeleting" msprop:Generator_RowChangingName="RENTRowChanging" msprop:Generator_RowEvHandlerName="RENTRowChangeEventHandler" msprop:Generator_RowDeletedName="RENTRowDeleted" msprop:Generator_RowClassName="RENTRow" msprop:Generator_UserTableName="RENT" msprop:Generator_RowEvArgName="RENTRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MOVIE_ID" msprop:Generator_ColumnVarNameInTable="columnMOVIE_ID" msprop:Generator_ColumnPropNameInRow="MOVIE_ID" msprop:Generator_ColumnPropNameInTable="MOVIE_IDColumn" msprop:Generator_UserColumnName="MOVIE_ID" type="xs:int" />
+              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="START_RENT_DATE" msprop:Generator_ColumnVarNameInTable="columnSTART_RENT_DATE" msprop:Generator_ColumnPropNameInRow="START_RENT_DATE" msprop:Generator_ColumnPropNameInTable="START_RENT_DATEColumn" msprop:Generator_UserColumnName="START_RENT_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RETURN_DATE" msprop:Generator_ColumnVarNameInTable="columnRETURN_DATE" msprop:Generator_ColumnPropNameInRow="RETURN_DATE" msprop:Generator_ColumnPropNameInTable="RETURN_DATEColumn" msprop:Generator_UserColumnName="RETURN_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RENT_PRICE" msprop:Generator_ColumnVarNameInTable="columnRENT_PRICE" msprop:Generator_ColumnPropNameInRow="RENT_PRICE" msprop:Generator_ColumnPropNameInTable="RENT_PRICEColumn" msprop:Generator_UserColumnName="RENT_PRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DURATION" msprop:Generator_ColumnVarNameInTable="columnDURATION" msprop:Generator_ColumnPropNameInRow="DURATION" msprop:Generator_ColumnPropNameInTable="DURATIONColumn" msprop:Generator_UserColumnName="DURATION" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="START_RENT_DATE" msprop:Generator_ColumnVarNameInTable="columnSTART_RENT_DATE" msprop:Generator_ColumnPropNameInRow="START_RENT_DATE" msprop:Generator_ColumnPropNameInTable="START_RENT_DATEColumn" msprop:Generator_UserColumnName="START_RENT_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RETURN_DATE" msprop:Generator_ColumnVarNameInTable="columnRETURN_DATE" msprop:Generator_ColumnPropNameInRow="RETURN_DATE" msprop:Generator_ColumnPropNameInTable="RETURN_DATEColumn" msprop:Generator_UserColumnName="RETURN_DATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RentPrice" msprop:Generator_ColumnVarNameInTable="columnRentPrice" msprop:Generator_ColumnPropNameInRow="RentPrice" msprop:Generator_ColumnPropNameInTable="RentPriceColumn" msprop:Generator_UserColumnName="RentPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MOVIE_ID" msprop:Generator_ColumnVarNameInTable="columnMOVIE_ID" msprop:Generator_ColumnPropNameInRow="MOVIE_ID" msprop:Generator_ColumnPropNameInTable="MOVIE_IDColumn" msprop:Generator_UserColumnName="MOVIE_ID" type="xs:int" />
+              <xs:element name="Movie_NAME" msprop:Generator_ColumnVarNameInTable="columnMovie_NAME" msprop:Generator_ColumnPropNameInRow="Movie_NAME" msprop:Generator_ColumnPropNameInTable="Movie_NAMEColumn" msprop:Generator_UserColumnName="Movie_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RATE" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" />
+              <xs:element name="RELEASE_YEAR" msprop:Generator_ColumnVarNameInTable="columnRELEASE_YEAR" msprop:Generator_ColumnPropNameInRow="RELEASE_YEAR" msprop:Generator_ColumnPropNameInTable="RELEASE_YEARColumn" msprop:Generator_UserColumnName="RELEASE_YEAR">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DURATION" msprop:Generator_ColumnVarNameInTable="columnDURATION" msprop:Generator_ColumnPropNameInRow="DURATION" msprop:Generator_ColumnPropNameInTable="DURATIONColumn" msprop:Generator_UserColumnName="DURATION" type="xs:duration" />
+              <xs:element name="VIDEO_QUALITY" msprop:Generator_ColumnVarNameInTable="columnVIDEO_QUALITY" msprop:Generator_ColumnPropNameInRow="VIDEO_QUALITY" msprop:Generator_ColumnPropNameInTable="VIDEO_QUALITYColumn" msprop:Generator_UserColumnName="VIDEO_QUALITY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CUSTOMER" />
+      <xs:field xpath="mstns:USERNAME" />
+    </xs:unique>
+    <xs:unique name="GENER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GENER" />
+      <xs:field xpath="mstns:MOVIE_ID" />
+      <xs:field xpath="mstns:MOVIE_GERE" />
+    </xs:unique>
+    <xs:unique name="MAINACTORS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MAINACTORS" />
+      <xs:field xpath="mstns:MOVIE_ID" />
+      <xs:field xpath="mstns:MAIN_ACTORS" />
+    </xs:unique>
+    <xs:unique name="MOVIE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MOVIE" />
+      <xs:field xpath="mstns:MOVIE_ID" />
+    </xs:unique>
+    <xs:unique name="NEW_USER_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NEW_USER" />
+      <xs:field xpath="mstns:USERNAME" />
+    </xs:unique>
+    <xs:unique name="NEWADMIN_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NEWADMIN" />
+      <xs:field xpath="mstns:USERNAME" />
+    </xs:unique>
+    <xs:unique name="PAYMENT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PAYMENT" />
+      <xs:field xpath="mstns:PAYMENT_ID" />
+    </xs:unique>
+    <xs:unique name="RENT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RENT" />
+      <xs:field xpath="mstns:MOVIE_ID" />
+      <xs:field xpath="mstns:USERNAME" />
+    </xs:unique>
+    <xs:unique name="DataTable2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable2" />
+      <xs:field xpath="mstns:MOVIE_ID" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_CUSTOMER_IS_CUSTOM_USER" msdata:parent="NEW_USER" msdata:child="CUSTOMER" msdata:parentkey="USERNAME" msdata:childkey="USERNAME" msprop:Generator_UserChildTable="CUSTOMER" msprop:Generator_ChildPropName="GetCUSTOMERRows" msprop:Generator_UserRelationName="FK_CUSTOMER_IS_CUSTOM_USER" msprop:Generator_ParentPropName="NEW_USERRow" msprop:Generator_RelationVarName="relationFK_CUSTOMER_IS_CUSTOM_USER" msprop:Generator_UserParentTable="NEW_USER" />
+      <msdata:Relationship name="FK_GENER_HAS_MOVIE" msdata:parent="MOVIE" msdata:child="GENER" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="GENER" msprop:Generator_ChildPropName="GetGENERRows" msprop:Generator_UserRelationName="FK_GENER_HAS_MOVIE" msprop:Generator_ParentPropName="MOVIERow" msprop:Generator_RelationVarName="relationFK_GENER_HAS_MOVIE" msprop:Generator_UserParentTable="MOVIE" />
+      <msdata:Relationship name="FK_MOVIE_HAS_MAINACTORS" msdata:parent="MOVIE" msdata:child="MAINACTORS" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="MAINACTORS" msprop:Generator_ChildPropName="GetMAINACTORSRows" msprop:Generator_UserRelationName="FK_MOVIE_HAS_MAINACTORS" msprop:Generator_ParentPropName="MOVIERow" msprop:Generator_RelationVarName="relationFK_MOVIE_HAS_MAINACTORS" msprop:Generator_UserParentTable="MOVIE" />
+      <msdata:Relationship name="FK_MOVIE_ADDED_or_UPDATED_by_ADMIN" msdata:parent="NEWADMIN" msdata:child="MOVIE" msdata:parentkey="USERNAME" msdata:childkey="ADMIN_ID" msprop:Generator_UserChildTable="MOVIE" msprop:Generator_ChildPropName="GetMOVIERows" msprop:Generator_UserRelationName="FK_MOVIE_ADDED_or_UPDATED_by_ADMIN" msprop:Generator_ParentPropName="NEWADMINRow" msprop:Generator_RelationVarName="relationFK_MOVIE_ADDED_or_UPDATED_by_ADMIN" msprop:Generator_UserParentTable="NEWADMIN" />
+      <msdata:Relationship name="FK_ADMIN_RELATIONS_USER" msdata:parent="NEW_USER" msdata:child="NEWADMIN" msdata:parentkey="USERNAME" msdata:childkey="USERNAME" msprop:Generator_UserChildTable="NEWADMIN" msprop:Generator_ChildPropName="GetNEWADMINRows" msprop:Generator_UserRelationName="FK_ADMIN_RELATIONS_USER" msprop:Generator_RelationVarName="relationFK_ADMIN_RELATIONS_USER" msprop:Generator_UserParentTable="NEW_USER" msprop:Generator_ParentPropName="NEW_USERRow" />
+      <msdata:Relationship name="FK_PAYMENT_PAY_CUSTOMER" msdata:parent="CUSTOMER" msdata:child="PAYMENT" msdata:parentkey="USERNAME" msdata:childkey="USERNAME" msprop:Generator_UserChildTable="PAYMENT" msprop:Generator_ChildPropName="GetPAYMENTRows" msprop:Generator_UserRelationName="FK_PAYMENT_PAY_CUSTOMER" msprop:Generator_RelationVarName="relationFK_PAYMENT_PAY_CUSTOMER" msprop:Generator_UserParentTable="CUSTOMER" msprop:Generator_ParentPropName="CUSTOMERRow" />
+      <msdata:Relationship name="FK_RENT_RELATIONS_CUSTOMER" msdata:parent="CUSTOMER" msdata:child="RENT" msdata:parentkey="USERNAME" msdata:childkey="USERNAME" msprop:Generator_UserChildTable="RENT" msprop:Generator_ChildPropName="GetRENTRows" msprop:Generator_UserRelationName="FK_RENT_RELATIONS_CUSTOMER" msprop:Generator_RelationVarName="relationFK_RENT_RELATIONS_CUSTOMER" msprop:Generator_UserParentTable="CUSTOMER" msprop:Generator_ParentPropName="CUSTOMERRow" />
+      <msdata:Relationship name="FK_RENT_RELATIONS_MOVIE" msdata:parent="MOVIE" msdata:child="RENT" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="RENT" msprop:Generator_ChildPropName="GetRENTRows" msprop:Generator_UserRelationName="FK_RENT_RELATIONS_MOVIE" msprop:Generator_RelationVarName="relationFK_RENT_RELATIONS_MOVIE" msprop:Generator_UserParentTable="MOVIE" msprop:Generator_ParentPropName="MOVIERow" />
+      <msdata:Relationship name="FK_GENER_HAS_MOVIE1" msdata:parent="MOVIE" msdata:child="DataTable1" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="DataTable1" msprop:Generator_ChildPropName="GetDataTable1Rows" msprop:Generator_UserRelationName="FK_GENER_HAS_MOVIE1" msprop:Generator_RelationVarName="relationFK_GENER_HAS_MOVIE1" msprop:Generator_UserParentTable="MOVIE" msprop:Generator_ParentPropName="MOVIERow" />
+      <msdata:Relationship name="FK_GENER_HAS_MOVIE2" msdata:parent="DataTable2" msdata:child="GENER" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="GENER" msprop:Generator_ChildPropName="GetGENERRows" msprop:Generator_UserRelationName="FK_GENER_HAS_MOVIE2" msprop:Generator_RelationVarName="relationFK_GENER_HAS_MOVIE2" msprop:Generator_UserParentTable="DataTable2" msprop:Generator_ParentPropName="DataTable2Row" />
+      <msdata:Relationship name="FK_MOVIE_HAS_MAINACTORS1" msdata:parent="DataTable2" msdata:child="MAINACTORS" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="MAINACTORS" msprop:Generator_ChildPropName="GetMAINACTORSRows" msprop:Generator_UserRelationName="FK_MOVIE_HAS_MAINACTORS1" msprop:Generator_RelationVarName="relationFK_MOVIE_HAS_MAINACTORS1" msprop:Generator_UserParentTable="DataTable2" msprop:Generator_ParentPropName="DataTable2Row" />
+      <msdata:Relationship name="FK_RENT_RELATIONS_MOVIE1" msdata:parent="DataTable2" msdata:child="RENT" msdata:parentkey="MOVIE_ID" msdata:childkey="MOVIE_ID" msprop:Generator_UserChildTable="RENT" msprop:Generator_ChildPropName="GetRENTRows" msprop:Generator_UserRelationName="FK_RENT_RELATIONS_MOVIE1" msprop:Generator_RelationVarName="relationFK_RENT_RELATIONS_MOVIE1" msprop:Generator_UserParentTable="DataTable2" msprop:Generator_ParentPropName="DataTable2Row" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
